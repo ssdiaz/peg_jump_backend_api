@@ -1,4 +1,5 @@
 class TileSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :options, :removes, :peg
+  attributes :number, :options, :removes, :peg, :board_id
+  # belongs_to :board
 end

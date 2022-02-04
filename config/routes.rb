@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
   get 'tiles' => 'tiles#index'
+  get 'boards/:id' => 'boards#show' # resources :boards
 
   ##Project video 2  ~ 25 mins a little before
     # namespace :api do 
