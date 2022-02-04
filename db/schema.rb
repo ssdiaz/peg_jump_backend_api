@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_03_233343) do
+ActiveRecord::Schema.define(version: 2022_02_04_175551) do
+
+  create_table "boards", force: :cascade do |t|
+    t.integer "game_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "tiles", force: :cascade do |t|
     t.string "options"
     t.string "removes"
     t.boolean "peg"
+    t.integer "board_id"
+    t.integer "number"
   end
 
 end
