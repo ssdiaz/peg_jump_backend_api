@@ -41,4 +41,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # You will gain access to a new generator, serializer. With the new serializer generator, we can create serializer classes for all 3 of our models, which will be available to us in any controller actions later:
-# gem 'fast_jsonapi' 
+gem 'fast_jsonapi' 

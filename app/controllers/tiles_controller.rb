@@ -18,8 +18,8 @@ class TilesController < ApplicationController
    # --- only renders id, name, species) ---
   def index
     tiles = Tile.all
-    render json: tiles, only: [:id, :options, :removes, :peg]
-    # render json: TileSerializer.new(tiles).to_serialized_json
+    # render json: tiles, only: [:id, :options, :removes, :peg]
+    render json: TileSerializer.new(tiles) #using FastJson
   end
   
   # ----------------------------------------------------------------------------------------
