@@ -7,33 +7,41 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Tile.destroy_all
+Board.destroy_all
+Player.destroy_all
 
 
+Player.create(name:"Sam")
+sam = Player.all.first
 
-# Tile.destroy_all
-# Board.destroy_all
+Game.create(player_id: sam.id)
+game = Game.all.first
+
+Board.create(game_id: game.id) #have to put board before tile creation
+board =  Board.all.first
+
+game.board_id = board.id
+game.save
+
+tiles =
+[ 1, [4,6],       [2,3],       true],
+[ 2, [7,8],       [4,5],       true],
+[ 3, [8,10],      [5,6],       true],
+[ 4, [1,6,13,11], [2,5,8,7],   true],
+[ 5, [12,14],     [8,9],       true],
+[ 6, [1,4,15],    [3,5,10],    true],
+[ 7, [2,9],       [4,8],       true],
+[ 8, [3,10],      [5,9],       true],
+[ 9, [2,7],       [5,8],       true],
+[10, [3,15,8],    [6,9],       true],
+[11, [4,13],      [7,12],      true],
+[12, [5,14],      [8,13],      true],
+[13, [11,4,6,15], [12,8,9,14], true],
+[14, [12,5],      [13,9],      true],
+[15, [13,6],      [14,10],     true]
 
 
-# board1 = Board.create() #have to put board before tile creation
-
-# tiles =
-# [ 1, [4,6],       [2,3],       true],
-# [ 2, [7,8],       [4,5],       true],
-# [ 3, [8,10],      [5,6],       true],
-# [ 4, [1,6,13,11], [2,5,8,7],   true],
-# [ 5, [12,14],     [8,9],       true],
-# [ 6, [1,4,15],    [3,5,10],    true],
-# [ 7, [2,9],       [4,8],       true],
-# [ 8, [3,10],      [5,9],       true],
-# [ 9, [2,7],       [5,8],       true],
-# [10, [3,15,8],    [6,9],       true],
-# [11, [4,13],      [7,12],      true],
-# [12, [5,14],      [8,13],      true],
-# [13, [11,4,6,15], [12,8,9,14], true],
-# [14, [12,5],      [13,9],      true],
-# [15, [13,6],      [14,10],     true]
-
-
-# tiles.each do |tile|
-#     Tile.create(number: tile[0], options: tile[1], removes: tile[2], peg: true, board_id: board1.id)
-# end
+tiles.each do |tile|
+    Tile.create(number: tile[0], options: tile[1], removes: tile[2], active: true, board_id: board.id)
+end

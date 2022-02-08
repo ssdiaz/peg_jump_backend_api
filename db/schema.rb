@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_224940) do
 
   create_table "games", force: :cascade do |t|
     t.integer "player_id"
-    t.string "board_id"
+    t.integer "board_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_224940) do
   create_table "tiles", force: :cascade do |t|
     t.string "options"
     t.string "removes"
-    t.boolean "peg"
+    t.boolean "active"
     t.integer "board_id"
     t.integer "number"
   end

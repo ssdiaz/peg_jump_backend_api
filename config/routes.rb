@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get 'tiles'       => 'tiles#index'
   get 'boards'      => 'boards#index'
   get 'boards/:id'  => 'boards#show' # resources :boards
-  get 'games/:id'   => 'games#show'
-  get 'games'       => 'games#index'
+  # get 'games/:id'   => 'games#show'
+  # get 'games'       => 'games#index'
   # get 'players'     => 'players#index'
 
   resources :players
