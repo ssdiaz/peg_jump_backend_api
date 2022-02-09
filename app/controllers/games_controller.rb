@@ -25,7 +25,7 @@ class GamesController < ApplicationController
     private
 
     def game_params
-        params.require(:game).permit(:player, :board_id)
+        params.require(:game).permit(:player, :win, :board_id)
     end
 
 end

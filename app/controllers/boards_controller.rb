@@ -12,4 +12,9 @@ class BoardsController < ApplicationController
     render json: BoardSerializer.new(board) #using FastJson
   end
 
+
+  def game_params
+    params.require(:board).permit(:game_id)
+end
+
 end

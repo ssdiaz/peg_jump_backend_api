@@ -8,9 +8,16 @@
 
 
 Tile.destroy_all
+Tile.reset_pk_sequence
+
 Board.destroy_all
+Board.reset_counters(1, :tiles)
+
+
 Player.destroy_all
+
 Game.destroy_all
+Game.reset_pk_sequence
 
 
 Player.create(name:"Sam")
@@ -44,5 +51,5 @@ tiles =
 
 
 tiles.each do |tile|
-    Tile.create(number: tile[0], options: tile[1], removes: tile[2], active: true, board_id: board.id)
+    Tile.create(number: tile[0], options: tile[1], removes: tile[2], active: true, board_id: board.id, :win: nil)
 end

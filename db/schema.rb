@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_224940) do
+ActiveRecord::Schema.define(version: 2022_02_09_033430) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "game_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_224940) do
   create_table "games", force: :cascade do |t|
     t.integer "player_id"
     t.integer "board_id"
+    t.boolean "win"
   end
 
   create_table "players", force: :cascade do |t|
