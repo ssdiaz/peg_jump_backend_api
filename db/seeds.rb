@@ -8,22 +8,19 @@
 
 
 Tile.destroy_all
-Tile.reset_pk_sequence
+# Tile.reset_pk_sequence
 
 Board.destroy_all
-Board.reset_counters(1, :tiles)
+# Board.reset_counters(1, :tiles)
 
 
-Player.destroy_all
+#Player.destroy_all
 
 Game.destroy_all
-Game.reset_pk_sequence
+# Game.reset_pk_sequence
 
 
-Player.create(name:"Sam")
-sam = Player.all.first
-
-Game.create(player_id: sam.id)
+Game.create()
 game = Game.all.first
 
 Board.create(game_id: game.id) #have to put board before tile creation
@@ -51,5 +48,5 @@ tiles =
 
 
 tiles.each do |tile|
-    Tile.create(number: tile[0], options: tile[1], removes: tile[2], active: true, board_id: board.id, :win: nil)
+    Tile.create(number: tile[0], options: tile[1], removes: tile[2], active: true, board_id: board.id)
 end

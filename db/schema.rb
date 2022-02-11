@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_09_033430) do
+ActiveRecord::Schema.define(version: 2022_02_10_220543) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "game_id"
   end
 
   create_table "games", force: :cascade do |t|
-    t.integer "player_id"
     t.integer "board_id"
     t.boolean "win"
+    t.string "move_count"
+    t.string "integer"
   end
 
   create_table "players", force: :cascade do |t|
@@ -32,6 +33,12 @@ ActiveRecord::Schema.define(version: 2022_02_09_033430) do
     t.boolean "active"
     t.integer "board_id"
     t.integer "number"
+  end
+
+  create_table "wins", force: :cascade do |t|
+    t.integer "move_count"
+    t.integer "win_count"
+    t.integer "player_id"
   end
 
 end

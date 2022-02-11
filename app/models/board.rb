@@ -2,11 +2,6 @@ class Board < ApplicationRecord
     has_many :tiles
     belongs_to :game
 
-    # validates_presence_of :game_id
-
-
-
-
     def restart
         Board.destroy_all
         Board.create(game_id: game.id) #have to put board before tile creation
@@ -34,8 +29,6 @@ class Board < ApplicationRecord
             Tile.create(number: tile[0], options: tile[1], removes: tile[2], active: true, board_id: board.id)
         end
     end
-
-
 
 
 end
